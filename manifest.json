@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "NeoExamShield",
+  "version": "1.20",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "clipboardRead",
+    "commands"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/neoexs.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "send-to-gemini": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": " "
+    }
+  }
+}
